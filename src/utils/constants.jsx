@@ -1,0 +1,1 @@
+export const mainBackground = 'https://static.wixstatic.com/media/11062b_691a7912eaec4acdbed5b23acb16d64b~mv2.jpeg/v1/fill/w_642,h_674,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_691a7912eaec4acdbed5b23acb16d64b~mv2.jpeg' 
