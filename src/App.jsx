@@ -1,9 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import HomePage from './component/HomePage'
 import Navbar from './component/Navbar'
 import FilterBar from './component/FilterBar'
 
+import { allCategory } from './utils/AllCategory'; 
+
+
 const App = () => {
+  // console.log(allCategory[0].action.text)
+
+  const [filteredData, setFilteredData] = useState(allCategory);
+
+  const handleSearch = (query) => {
+    
+    const filtered = allCategory.filter((item) =>
+      item.action.text.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredData(filtered);
+  };
 
   // useEffect(()=>{
   //   const data = async () => {
@@ -17,9 +31,12 @@ const App = () => {
   // },[])
   return (
     <div>
-      <Navbar/>
-      <FilterBar/>
-    <HomePage/>
+      {/* <Navbar/> */}
+      
+    {/* <HomePage/> */}
+
+    <Navbar handleSearch={handleSearch} /><FilterBar/>
+      <HomePage filteredData={filteredData} />
     </div>
   )
 }

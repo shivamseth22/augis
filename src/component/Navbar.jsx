@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Typography, MenuItem, Menu, Button, Hidden, Box, TextField } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
-const Navbar = () => {
+const Navbar = ({ handleSearch }) => {
+    const [searchQuery, setSearchQuery] = useState('');
+  
+    const handleChange = (event) => {
+      setSearchQuery(event.target.value);
+      handleSearch(event.target.value); // Pass the search query to the parent component
+    };
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
@@ -20,8 +26,14 @@ const Navbar = () => {
                 <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
                     Auriga
                 </Typography>
-                <TextField id="search" variant="outlined" size="small" placeholder='search...' />
-                <Hidden smDown>
+                <TextField
+                    id="search"
+                    variant="outlined"
+                    size="small"
+                    placeholder="Search..."
+                    value={searchQuery}
+                    onChange={handleChange}
+                /> <Hidden smDown>
                     <Button color="inherit" sx={{ '&:hover': { color: 'black' } }}>Home</Button>
                     <Button color="inherit" sx={{ '&:hover': { color: 'black' } }}>About</Button>
                     <Button color="inherit" sx={{ '&:hover': { color: 'black' } }}>FAQs</Button>
