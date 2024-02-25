@@ -1,7 +1,7 @@
 // HomePage.jsx
 import React from 'react';
 import { mainBackground } from '../utils/constants';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 
 const HomePage = ({ filteredData }) => {
     const divStyle = {

@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Box from '@mui/material/Box';
+import { Button } from '@mui/material';
 
 const FilterBar = () => {
   return (
